@@ -8,7 +8,7 @@
     if (section && document.querySelector('frameset')) {
       var content = document.querySelector('frame[name="contents"]');
       var sub = new URLSearchParams(location.search).get('sub');
-      if (content && safeSub(sub)) content.src = sub + '?v=ko-utf8-43fc443';
+      if (content && safeSub(sub)) content.src = sub + '?v=ko-utf8-71f73ce';
       var currentSub = safeSub(sub) ? sub : '';
       function report(value) {
         currentSub = value || '';
