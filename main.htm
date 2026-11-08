@@ -28,6 +28,7 @@ html, frameset, frame { background-color: #000; }
     document.addEventListener('DOMContentLoaded', function () {
       var sub = new URLSearchParams(window.location.search).get('sub');
       var query = sub && /^\.\.\/dispel(?:_multi)?\/(?:[A-Za-z0-9_% -]+\/)*[A-Za-z0-9_% -]+\.htm$/i.test(sub) ? '?sub=' + encodeURIComponent(sub) : '';
+      if (/^dispel(?:_multi)?\//.test(page)) query += (query ? '&' : '?') + 'v=ko-utf8-43fc443';
       document.querySelector('frame[name="detail"]').src = page + query + window.location.hash;
     });
   }
@@ -74,7 +75,7 @@ html, frameset, frame { background-color: #000; }
     var menu = document.querySelector('frame[name="site-menu"]');
     var columns = document.getElementById('site-columns');
     if (!menu || !columns) return;
-    var target = page ? page.replace(/(?:dispel|dispel_multi)\.htm$/, 'right_frame.htm') : 'f_left.htm';
+    var target = page ? page.replace(/(?:dispel|dispel_multi)\.htm$/, 'right_frame.htm?v=ko-utf8-43fc443') : 'f_left.htm?v=ko-utf8-43fc443';
     columns.cols = '126,*';
     if (menu.getAttribute('src') !== target) menu.setAttribute('src', target);
   }
@@ -111,10 +112,10 @@ html, frameset, frame { background-color: #000; }
 <frameset id="site-columns" rows="1*" cols="126,*" border="0" frameborder="0" framespacing="0">
     <frameset rows="142, 81%" frameborder="0" border="0" framespacing="0">
 <frame name="brand" scrolling="no" namo_target_frame="header" src="f_up_left.htm" noresize="noresize" marginwidth="0" marginheight="0" data-ruffle-polyfilled="" frameborder="0">
-        <frame name="site-menu" src="f_left.htm" noresize="noresize" scrolling="auto" data-ruffle-polyfilled="" frameborder="0">
+        <frame name="site-menu" src="f_left.htm?v=ko-utf8-43fc443" noresize="noresize" scrolling="auto" data-ruffle-polyfilled="" frameborder="0">
     </frameset>
 <frameset rows="142, 80%" cols="1*" frameborder="0" border="0" framespacing="0">
-<frame name="header" scrolling="no" marginwidth="10" marginheight="14" namo_target_frame="detail" src="f_top.htm" noresize="noresize" data-ruffle-polyfilled="" frameborder="0">
+<frame name="header" scrolling="no" marginwidth="10" marginheight="14" namo_target_frame="detail" src="f_top.htm?v=ko-utf8-43fc443" noresize="noresize" data-ruffle-polyfilled="" frameborder="0">
 <frame name="detail" scrolling="yes" marginwidth="10" marginheight="14" src="news.htm" data-ruffle-polyfilled="" frameborder="0">
 </frameset>
 <noframes>
