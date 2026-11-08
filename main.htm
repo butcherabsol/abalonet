@@ -7,7 +7,9 @@
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 
 
-<style><!--
+<style>
+html, frameset, frame { background-color: #000; }
+<!--
 .leading200 { line-height: 200% }
 .leading180 { line-height: 180% }
 .leading150 { line-height: 150% }
@@ -19,16 +21,101 @@
 
 </style>
 
-  </head>
+  <script>
+(function () {
+  var page = new URLSearchParams(window.location.search).get('page');
+  if (/^(?:(?:news|games|about|support|link[012])\.htm|dispel\/dispel\.htm|dispel_multi\/dispel_multi\.htm)$/.test(page || '')) {
+    document.addEventListener('DOMContentLoaded', function () {
+      var sub = new URLSearchParams(window.location.search).get('sub');
+      var query = sub && /^\.\.\/dispel(?:_multi)?\/(?:[A-Za-z0-9_% -]+\/)*[A-Za-z0-9_% -]+\.htm$/i.test(sub) ? '?sub=' + encodeURIComponent(sub) : '';
+      document.querySelector('frame[name="detail"]').src = page + query + window.location.hash;
+    });
+  }
+}());
+</script>
+<script>
+(function () {
+  var key = 'abalonet-resolution';
+  var choice = '1024';
+  try { choice = localStorage.getItem(key) || choice; } catch (e) {}
+  if (choice !== '1024' && choice !== '1440' && choice !== 'full') choice = '1024';
+  function resizeSite() {
+    var layout = document.getElementById('resolution-layout');
+    if (!layout) return;
+    var width = choice === 'full' ? window.innerWidth : Math.min(Number(choice), window.innerWidth);
+    var side = Math.max(0, (window.innerWidth - width) / 2);
+    layout.cols = side + ',' + width + ',' + side;
+  }
+  window.getSiteResolution = function () { return choice; };
+  window.setSiteResolution = function (value) {
+    if (value !== '1024' && value !== '1440' && value !== 'full') return;
+    choice = value;
+    try { localStorage.setItem(key, value); } catch (e) {}
+    resizeSite();
+  };
+  window.addEventListener('message', function (event) {
+    var menu = document.querySelector('frame[name="site-menu"]');
+    if (!menu || event.source !== menu.contentWindow || !event.data || event.data.type !== 'abalonet-resolution') return;
+    if (event.data.action === 'next') {
+      var values = ['1024', '1440', 'full'];
+      window.setSiteResolution(values[(values.indexOf(choice) + 1) % values.length]);
+    } else if (event.data.action !== 'ready') return;
+    event.source.postMessage({ type: 'abalonet-resolution-state', value: choice }, '*');
+  });
+  window.addEventListener('resize', resizeSite);
+  document.addEventListener('DOMContentLoaded', resizeSite);
+}());
+</script>
+<script>
+(function () {
+  var gameState = null;
+  var contentPage = null;
+  function setMenu(page) {
+    var menu = document.querySelector('frame[name="site-menu"]');
+    var columns = document.getElementById('site-columns');
+    if (!menu || !columns) return;
+    var target = page ? page.replace(/(?:dispel|dispel_multi)\.htm$/, 'right_frame.htm') : 'f_left.htm';
+    columns.cols = '126,*';
+    if (menu.getAttribute('src') !== target) menu.setAttribute('src', target);
+  }
+  function sendState() {
+    var menu = document.querySelector('frame[name="site-menu"]');
+    if (menu && menu.contentWindow) menu.contentWindow.postMessage({type:'abalonet-language-state', game:gameState}, '*');
+    var header = document.querySelector('frame[name="header"]');
+    if (header && header.contentWindow) header.contentWindow.postMessage({type:'abalonet-header-state', game:gameState, page:contentPage}, '*');
+  }
+  window.addEventListener('message', function (event) {
+    var data = event.data || {};
+    var menu = document.querySelector('frame[name="site-menu"]');
+    var detail = document.querySelector('frame[name="detail"]');
+    if (menu && event.source === menu.contentWindow && data.type === 'abalonet-language-ready') sendState();
+    var header = document.querySelector('frame[name="header"]');
+    if (header && event.source === header.contentWindow && data.type === 'abalonet-header-ready') sendState();
+    if (detail && event.source === detail.contentWindow && data.type === 'abalonet-content-page') { contentPage = data.page; sendState(); }
+    if (detail && event.source === detail.contentWindow && data.type === 'abalonet-game-state' && /^(dispel\/dispel\.htm|dispel_multi\/dispel_multi\.htm)$/.test(data.page || '')) {
+      gameState = {page:data.page, sub:data.sub || ''};
+      setMenu(data.page);
+      sendState();
+    }
+  });
+  document.addEventListener('DOMContentLoaded', function () {
+    var detail = document.querySelector('frame[name="detail"]');
+    if (detail) detail.addEventListener('load', function () { gameState = null; contentPage = null; setMenu(null); sendState(); detail.contentWindow.postMessage({type:'abalonet-game-state-request'}, '*'); detail.contentWindow.postMessage({type:'abalonet-content-request'}, '*'); });
+  });
+}());
+</script>
+</head>
 
-<frameset rows="1*" cols="126, 86%" border="0">
-    <frameset rows="142, 81%">
-<frame name="contents" scrolling="no" namo_target_frame="header" src="f_up_left.htm" noresize="noresize" marginwidth="0" marginheight="0" data-ruffle-polyfilled="">
-        <frame src="f_left.htm" noresize="noresize" scrolling="no" data-ruffle-polyfilled="">
+<frameset id="resolution-layout" cols="0,1024,0" border="0" frameborder="0" framespacing="0">
+<frame src="margin.htm" title="Left margin" scrolling="no" noresize frameborder="0">
+<frameset id="site-columns" rows="1*" cols="126,*" border="0" frameborder="0" framespacing="0">
+    <frameset rows="142, 81%" frameborder="0" border="0" framespacing="0">
+<frame name="brand" scrolling="no" namo_target_frame="header" src="f_up_left.htm" noresize="noresize" marginwidth="0" marginheight="0" data-ruffle-polyfilled="" frameborder="0">
+        <frame name="site-menu" src="f_left.htm" noresize="noresize" scrolling="auto" data-ruffle-polyfilled="" frameborder="0">
     </frameset>
-<frameset rows="142, 80%" cols="1*">
-<frame name="header" scrolling="no" marginwidth="10" marginheight="14" namo_target_frame="detail" src="f_top.htm" noresize="noresize" data-ruffle-polyfilled="">
-<frame name="detail" scrolling="yes" marginwidth="10" marginheight="14" src="news.htm" data-ruffle-polyfilled="">
+<frameset rows="142, 80%" cols="1*" frameborder="0" border="0" framespacing="0">
+<frame name="header" scrolling="no" marginwidth="10" marginheight="14" namo_target_frame="detail" src="f_top.htm" noresize="noresize" data-ruffle-polyfilled="" frameborder="0">
+<frame name="detail" scrolling="yes" marginwidth="10" marginheight="14" src="news.htm" data-ruffle-polyfilled="" frameborder="0">
 </frameset>
 <noframes>
 
@@ -41,6 +128,8 @@
 <p>�� �������� ������, �������� �� �� �ִ� �������� �ʿ��մϴ�.</p>
 </body>
 </noframes>
+</frameset>
+<frame src="margin.htm" title="Right margin" scrolling="no" noresize frameborder="0">
 </frameset>
 
 </html>

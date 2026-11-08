@@ -1,0 +1,468 @@
+<html>
+
+<head>
+<script src="../site-shell.js" data-shell="../main.htm" data-page="dispel/dispel.htm" data-sub="../dispel/di_animation.htm"></script>
+
+<meta charset="utf-8">
+<style>body { background-color: #000; } .missing-asset { display:inline-block; color:#d6d68f; font:10px Arial,sans-serif; line-height:1.35; overflow-wrap:anywhere; }</style>
+<script src="../missing-assets.js"></script>
+
+<title>animation</title>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script language="JavaScript">
+
+</script>
+
+
+
+
+
+
+
+
+
+
+<script language="JavaScript">
+<!--
+function na_restore_img_src(name, nsdoc)
+{
+  var img = eval((navigator.appName == 'Netscape') ? nsdoc+'.'+name : 'document.all.'+name);
+  if (name == '')
+    return;
+  if (img && img.altsrc) {
+    img.src    = img.altsrc;
+    img.altsrc = null;
+  } 
+}
+
+function na_preload_img()
+{ 
+  var img_list = na_preload_img.arguments;
+  if (document.preloadlist == null) 
+    document.preloadlist = new Array();
+  var top = document.preloadlist.length;
+  for (var i=0; i < img_list.length; i++) {
+    document.preloadlist[top+i]     = new Image;
+    document.preloadlist[top+i].src = img_list[i+1];
+  } 
+}
+
+function na_change_img_src(name, nsdoc, rpath, preload)
+{ 
+  var img = eval((navigator.appName == 'Netscape') ? nsdoc+'.'+name : 'document.all.'+name);
+  if (name == '')
+    return;
+  if (img) {
+    img.altsrc = img.src;
+    img.src    = rpath;
+  } 
+}
+
+//-->
+</script>
+
+<script src="../game-navigation.js"></script>
+<style>
+html { background: #111 url("../files/bg.gif") left -16px / auto repeat fixed; }
+body {
+  box-sizing: border-box;
+  width: min(100%, 720px);
+  min-height: 100vh;
+  padding-left: min(36px, 6vw);
+  padding-right: min(100px, 14vw);
+  overflow-wrap: anywhere;
+  position: relative;
+  isolation: isolate;
+  background: transparent;
+}
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,.87) 5%, rgba(0,0,0,.87) 80%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 48px, #000 calc(100% - 48px), transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 48px, #000 calc(100% - 48px), transparent 100%);
+}
+body table, body img { max-width: 100%; }
+body img { height: auto; }
+</style>
+</head>
+
+<body bgcolor="black" text="#D6D68F" link="blue" vlink="purple" alink="red" >
+<p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;"><img src="../files/colosseum_img.gif" width="509" height="150" border="0"></p>
+<p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;">&nbsp;</p>
+<p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;"><img src="img/image.gif" width="539" height="31" border="0"></p>
+<p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;">&nbsp;</p>
+<p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;"><FONT color=#ffffff 
+size=2><FONT color=#ffcc99><B>&nbsp;</B></FONT></FONT></p>
+<p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;">&nbsp;<img src="dia_red.gif" width="10" height="10" border="0" alt="dia_red.gif"><FONT color=#ffffff 
+size=2><FONT color=#ffcc99><B> </FONT><FONT color="#A25922" 
+size=2>ANIMATION - </B></FONT></font><FONT color=#ffffff 
+size="2"><FONT color="#A25922">monster</font></FONT></p>
+<p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;"><FONT color=#ffffff 
+size=2><FONT color=#ffffff 
+size=2><FONT color=#ffcc99><B>&nbsp;</B></FONT></FONT><FONT color=#d6d68f size=2> </font></FONT></p>
+<table style="line-height:100%; margin:0; padding:0;" border="0" cellpadding="0" cellspacing="0" width="495" bordercolor="#797B59">
+    <tr>
+        <td width="151" style="margin:0; padding:0;" bordercolor="#797B59">            <p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;" align="center"><a><FONT color="#B8BA9D" size="2"><img src="img/animation/monster/bas_s.gif" width="130" height="130" border="0" alt="bas" name="bas"></FONT></a></p>
+        </td>
+        <td width="27" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="143" style="margin:0; padding:0;">
+            <p><a><img src="img/animation/monster/be_s.gif" width="130" height="130" border="0" alt="be" name="be"></a></p>
+        </td>
+        <td width="22" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="152" style="margin:0; padding:0;">
+            <p><a><img src="img/animation/monster/dem_s.gif" width="130" height="130" border="0" alt="dem" name="dem"></a></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="151" style="margin:0; padding:0;" bordercolor="#797B59">
+            <p>&nbsp;</p>
+        </td>
+        <td width="27" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="143" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="22" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="152" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+    <tr>
+        <td width="151" style="margin:0; padding:0;" bordercolor="#797B59">            <p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;" align="center"><a><FONT color="#B8BA9D" size="2"><img src="img/animation/monster/dk_s.gif" width="130" height="130" border="0" alt="dk" name="dk"></FONT></a></p>
+        </td>
+        <td width="27" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="143" style="margin:0; padding:0;">
+            <p><a><img src="img/animation/monster/gago_s.gif" width="130" height="130" border="0" alt="gago" name="gago"></a></p>
+        </td>
+        <td width="22" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="152" style="margin:0; padding:0;">
+            <p><a><img src="img/animation/monster/golem_s.gif" width="130" height="130" border="0" alt="golem" name="golem"></a></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="151" style="margin:0; padding:0;" bordercolor="#797B59">
+            <p>&nbsp;</p>
+        </td>
+        <td width="27" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="143" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="22" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="152" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+    <tr>
+        <td width="151" style="margin:0; padding:0;" bordercolor="#797B59">            <p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;" align="center"><a><FONT color="#B8BA9D" size="2"><img src="img/animation/monster/kenta_s.gif" width="130" height="130" border="0" alt="kenta" name="kenta"></FONT></a></p>
+        </td>
+        <td width="27" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="143" style="margin:0; padding:0;">
+            <p><a><img src="img/animation/monster/mino_s.gif" width="130" height="130" border="0" alt="mino" name="mino"></a></p>
+        </td>
+        <td width="22" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="152" style="margin:0; padding:0;">
+            <p><a><img src="img/animation/monster/orc_s.gif" width="130" height="130" border="0" alt="orc" name="orc"></a></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="151" style="margin:0; padding:0;" bordercolor="#797B59">
+            <p>&nbsp;</p>
+        </td>
+        <td width="27" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="143" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="22" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="152" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+    <tr>
+        <td width="151" style="margin:0; padding:0;" bordercolor="#797B59">            <p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;" align="center"><a><FONT color="#B8BA9D" size="2"><img src="img/animation/monster/rd_s.gif" width="130" height="130" border="0" alt="rd" name="rd"></FONT></a></p>
+        </td>
+        <td width="27" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="143" style="margin:0; padding:0;">
+            <p><a><img src="img/animation/monster/Skel_s.gif" width="130" height="130" border="0" alt="Skel" name="Skel"></a></p>
+        </td>
+        <td width="22" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="152" style="margin:0; padding:0;">
+            <p><a><img src="img/animation/monster/Yeti_s.gif" width="130" height="130" border="0" alt="Yeti" name="Yeti"></a></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="151" style="margin:0; padding:0;" bordercolor="#797B59">
+            <p>&nbsp;</p>
+        </td>
+        <td width="27" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="143" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="22" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="152" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;"><FONT color=#ffffff 
+size="2">&nbsp;</font></p>
+<p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;">&nbsp;<img src="dia_red.gif" width="10" height="10" border="0" alt="dia_red.gif"><FONT color=#ffffff 
+size=2><FONT color=#ffcc99><B> </FONT><FONT color="#A25922" 
+size=2>ANIMATION - </B></FONT></font><FONT color=#ffffff 
+size="2"><FONT color="#A25922">party</font></FONT></p>
+<p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;"><FONT color=#ffffff 
+size=2><FONT color=#ffffff 
+size=2><FONT color=#ffcc99><B>&nbsp;</B></FONT></FONT><FONT color=#d6d68f size=2> </font></FONT></p>
+<table style="line-height:100%; margin:0; padding:0;" border="0" cellpadding="0" cellspacing="0" width="495" bordercolor="#797B59">
+    <tr>
+        <td width="151" style="margin:0; padding:0;" bordercolor="#797B59">            <p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;" align="center"><a><FONT color="#B8BA9D" size="2"><img src="img/animation/party/Ban_s.gif" width="130" height="130" border="0" alt="Ban" name="Ban"></FONT></a></p>
+        </td>
+        <td width="27" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="143" style="margin:0; padding:0;">
+            <p><a><img src="img/animation/party/Hak_s.gif" width="130" height="130" border="0" alt="Hak" name="Hak"></a></p>
+        </td>
+        <td width="22" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="152" style="margin:0; padding:0;">
+            <p><a><img src="img/animation/party/Haren_s.gif" width="130" height="130" border="0" alt="Haren" name="Haren"></a></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="151" style="margin:0; padding:0;" bordercolor="#797B59">
+            <p>&nbsp;</p>
+        </td>
+        <td width="27" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="143" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="22" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="152" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+    <tr>
+        <td width="151" style="margin:0; padding:0;" bordercolor="#797B59">            <p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;" align="center"><a><FONT color="#B8BA9D" size="2"><img src="img/animation/party/Hera_s.gif" width="130" height="130" border="0" alt="Hera" name="Hera"></FONT></a></p>
+        </td>
+        <td width="27" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="143" style="margin:0; padding:0;">
+            <p><a><img src="img/animation/party/Jin_s.gif" width="130" height="130" border="0" alt="Jin" name="Jin"></a></p>
+        </td>
+        <td width="22" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="152" style="margin:0; padding:0;">
+            <p><a><img src="img/animation/party/mgm_s.gif" width="130" height="130" border="0" alt="mgm" name="mgm"></a></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="151" style="margin:0; padding:0;" bordercolor="#797B59">
+            <p>&nbsp;</p>
+        </td>
+        <td width="27" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="143" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="22" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="152" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+    <tr>
+        <td width="151" style="margin:0; padding:0;" bordercolor="#797B59">            <p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;" align="center"><a><FONT color="#B8BA9D" size="2"><img src="img/animation/party/Pal_s.gif" width="130" height="130" border="0" alt="Pal" name="Pal"></FONT></a></p>
+        </td>
+        <td width="27" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="143" style="margin:0; padding:0;">
+            <p><a><img src="img/animation/party/Woman_s.gif" width="130" height="130" border="0" alt="Woman" name="Woman"></a></p>
+        </td>
+        <td width="22" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="152" style="margin:0; padding:0;">
+            <p><a>&nbsp;</a></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="151" style="margin:0; padding:0;" bordercolor="#797B59">
+            <p>&nbsp;</p>
+        </td>
+        <td width="27" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="143" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="22" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="152" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;">&nbsp;</p>
+<p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;"><img src="dia_red.gif" width="10" height="10" border="0" alt="dia_red.gif"><FONT color=#ffffff 
+size=2><FONT color=#ffcc99><B> </FONT><FONT color="#A25922" 
+size=2>ANIMATION - </B>sprit king</font></FONT></p>
+<p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;">&nbsp;</p>
+<table style="line-height:100%; margin:0; padding:0;" border="0" cellpadding="0" cellspacing="0" width="495" bordercolor="#797B59">
+    <tr>
+        <td width="151" style="margin:0; padding:0;" bordercolor="#797B59">            <p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;" align="center"><a><FONT color="#B8BA9D" size="2">&nbsp;</a><a><img src="img/animation/sprit_king/anemos_s.gif" width="130" height="130" border="0" alt="anemos" name="anemos"></FONT></a></p>
+        </td>
+        <td width="27" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="143" style="margin:0; padding:0;">
+            <p><a>&nbsp;</a><a><img src="img/animation/sprit_king/ere_s.gif" width="130" height="130" border="0" name="ere"></a></p>
+        </td>
+        <td width="22" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="152" style="margin:0; padding:0;">
+            <p><a>&nbsp;</a><a><img src="img/animation/sprit_king/maim_s.gif" width="130" height="130" border="0" name="maim"></a></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="151" style="margin:0; padding:0;" bordercolor="#797B59">
+            <p>&nbsp;</p>
+        </td>
+        <td width="27" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="143" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="22" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="152" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+    <tr>
+        <td width="151" style="margin:0; padding:0;" bordercolor="#797B59">            <p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;" align="center"><a><FONT color="#B8BA9D" size="2">&nbsp;</a><a><img src="img/animation/sprit_king/puru_s.gif" width="130" height="130" border="0" name="puru"></FONT></a></p>
+        </td>
+        <td width="27" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="143" style="margin:0; padding:0;">
+            <p><a>&nbsp;</a></p>
+        </td>
+        <td width="22" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="152" style="margin:0; padding:0;">
+            <p><a>&nbsp;</a></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="151" style="margin:0; padding:0;" bordercolor="#797B59">
+            <p>&nbsp;</p>
+        </td>
+        <td width="27" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="143" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="22" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+        <td width="152" style="margin:0; padding:0;">
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p style="line-height:100%; margin:0; padding:0;">&nbsp;</p>
+<p style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;">&nbsp;</p>
+<table width="430" cellpadding="0" cellspacing="0" style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;">
+    <tr>
+        <td width="420"><p align="center" style="line-height:100%; margin:0 5px; color:#cccc99; font-size:small;">Source: Dispel.prv.pl</p></td>
+    </tr>
+    <tr>
+        <td width="420" bgcolor="#48481B">
+            <p align="center" style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;"><FONT face="굴림,Arial" color=#cccc99 
+size="2">Copyright ⓒ 2000 ABALON STUDIO All Rights Reserved.</FONT></td>
+    </tr>
+    <tr>
+        <td width="420">
+            <p align="center" style="line-height:100%; margin-top:0; margin-right:5; margin-bottom:0; margin-left:5;"><A 
+href="https://discord.gg/XCNrwvdV6R" target="_blank" rel="noopener noreferrer"><FONT face="굴림,Arial" color=#cccc99 
+size="2">webmaster@ abalonet.com </FONT></A></td>
+    </tr>
+</table>
+<p style="line-height:100%; margin-top:0; margin-right:10; margin-bottom:0; margin-left:10;"><FONT color=#ffffff 
+size=2><FONT color="#D6D68F" size="2">&nbsp;</font></FONT></p>
+</body>
+
+</html>

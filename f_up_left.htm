@@ -22,6 +22,31 @@
 
 
 
+<script>
+(function () {
+  var link = document.querySelector('a[href="news.htm"]');
+  var image = link && link.querySelector('img');
+  if (!image) return;
+  var still = image.getAttribute('src');
+  var animation = 'f_up_left_files/logo_light_hover.gif';
+  var count = 0;
+  var timer = null;
+  var preload = new Image();
+  preload.src = animation;
+  function showStill() {
+    if (timer === null && !link.matches(':hover') && document.activeElement !== link) image.src = still;
+  }
+  function animate() {
+    clearTimeout(timer);
+    image.src = animation + '?restart=' + (++count);
+    timer = setTimeout(function () { timer = null; showStill(); }, 3380);
+  }
+  link.addEventListener('mouseenter', animate);
+  link.addEventListener('mouseleave', showStill);
+  link.addEventListener('focus', animate);
+  link.addEventListener('blur', showStill);
+}());
+</script>
 </body></html>
 <!--
      FILE ARCHIVED ON 10:15:00 Jan 24, 2001 AND RETRIEVED FROM THE

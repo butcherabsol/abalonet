@@ -14,6 +14,48 @@
 
 <title>�ƹ߷� ��Ʃ���</title>
 <!-- base href="https://web.archive.org/web/20010124102300fw_/http://www.abalonet.com/fame_up_right.htm" -->
+<style>html { scrollbar-width: none; } ::-webkit-scrollbar { display: none; } @-moz-document url-prefix() { body::after { content: ""; position: fixed; top: 0; right: 0; width: 1px; height: 100vh; background: #555; pointer-events: none; z-index: 10; } }</style>
+<style>
+#game-header-nav { display:none; position:fixed; right:12px; bottom:5px; z-index:10; padding:3px 6px; background:#001f27; font:bold 12px Arial,sans-serif; }
+#game-header-nav a { color:#d6d68f; margin:0 8px 0 3px; }
+#game-header-nav img { vertical-align:middle; }
+</style>
+<script>
+(function () {
+  var nav;
+  function update(game, page) {
+    if (!nav) return;
+    var mainPage = /^(news|games|about|support|link[012])\.htm$/.test(page || '');
+    nav.style.display = game || mainPage ? 'block' : 'none';
+    if (!game && !mainPage) return;
+    var home = document.getElementById('game-home');
+    var middle = document.getElementById('game-middle');
+    var other = document.getElementById('game-other');
+    if (!game) {
+      home.href = 'news.htm'; home.target = 'detail';
+      middle.href = 'dispel/dispel.htm'; middle.textContent = 'DISPEL';
+      other.href = 'dispel_multi/dispel_multi.htm'; other.textContent = 'COLOSSEUM';
+      return;
+    }
+    var multi = game.page === 'dispel_multi/dispel_multi.htm';
+    home.href = multi ? 'dispel_multi/news.htm' : 'dispel/news.htm'; home.target = 'contents';
+    middle.href = 'news.htm'; middle.textContent = 'ABALON STUDIO';
+    other.href = multi ? 'dispel/dispel.htm' : 'dispel_multi/dispel_multi.htm';
+    other.textContent = multi ? 'DISPEL' : 'COLOSSEUM';
+  }
+  window.addEventListener('message', function (event) {
+    if (event.source === parent && event.data && event.data.type === 'abalonet-header-state') update(event.data.game, event.data.page);
+  });
+  document.addEventListener('DOMContentLoaded', function () {
+    nav = document.createElement('nav');
+    nav.id = 'game-header-nav';
+    nav.setAttribute('aria-label', 'Game navigation');
+    nav.innerHTML = '<img src="dispel/dia_olive.gif" width="10" height="10" alt=""><a id="game-home" href="dispel/news.htm" target="contents">HOME</a><img src="dispel/dia_olive.gif" width="10" height="10" alt=""><a id="game-middle" href="news.htm" target="detail">ABALON STUDIO</a><img src="dispel/dia_olive.gif" width="10" height="10" alt=""><a id="game-other" href="dispel_multi/dispel_multi.htm" target="detail">COLOSSEUM</a>';
+    document.body.appendChild(nav);
+    parent.postMessage({type:'abalonet-header-ready'}, '*');
+  });
+}());
+</script>
 </head>
 
 <body bgcolor="white" text="black" link="blue" vlink="purple" alink="red" background="files/bg.gif" leftmargin="0" marginwidth="0" topmargin="0" marginheight="0">
